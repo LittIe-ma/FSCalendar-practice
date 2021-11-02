@@ -8,11 +8,19 @@
 import UIKit
 import FSCalendar
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
+
+    @IBOutlet private weak var calendar: FSCalendar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        calendar.delegate = self
+        calendar.dataSource = self
+        
+        calendar.appearance.todayColor = .red
+        calendar.appearance.headerTitleColor = .red
+        calendar.appearance.weekdayTextColor = .red
     }
 
 
